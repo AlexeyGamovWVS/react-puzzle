@@ -14,17 +14,21 @@ export default function DragContainer() {
   };
 
   const handleDrop = (e, index) => {
-		e.preventDefault();
+    e.preventDefault();
     setSourceElements([
       ...sourceElements.filter((elem) => elem.id !== draggedElement.id),
     ]);
-    setDraggedElements([
-      ...draggedElements.map((elem, elemIndex) => 
-        index === elemIndex ? draggedElement : elem
-    	),
-    ]);
+    setDraggedElements(
+      draggedElements.map((elem, elemIndex) =>
+        elem.id === draggedElement.id
+          ? {}
+          : index === elemIndex
+          ? draggedElement
+          : elem
+      )
+    );
 
-		setDraggedElement(null);
+    setDraggedElement(null);
   };
 
   useEffect(() => {
@@ -58,7 +62,8 @@ export default function DragContainer() {
             key={index}
             dropTargetIndex={index}
             puzzleElement={item}
-						handleDrop={handleDrop}
+            handleDrop={handleDrop}
+            handleDrag={handleDrag}
           />
         ))}
       </ul>

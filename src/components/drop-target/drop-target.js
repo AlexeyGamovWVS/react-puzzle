@@ -1,15 +1,18 @@
 import React from "react";
 
 export default function DropTarget(props) {
-  const { puzzleElement, handleDrop } = props;
+  const { puzzleElement, handleDrop, dropTargetIndex, handleDrag } = props;
   return (
     <li
       className="listItem"
 			onDragOver={(e)=> e.preventDefault()}
-			onDrop={handleDrop}
+			{...(!puzzleElement.id && {
+				onDrop: (e) => handleDrop(e, dropTargetIndex)
+			})}
     >
       {puzzleElement.elementSrc && (
         <img
+					onDrag={(e) => handleDrag(e, puzzleElement)}
           src={`./${puzzleElement.elementSrc}`}
         />
       )}
