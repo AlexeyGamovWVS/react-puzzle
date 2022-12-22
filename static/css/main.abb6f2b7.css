@@ -1,0 +1,2 @@
+body{margin:0}.app{font-family:sans-serif;text-align:center}.container{grid-gap:50px;align-content:center;background:#000;display:grid;gap:50px;grid-template-columns:repeat(1,250px);grid-template-rows:repeat(2,250px);height:100vh;justify-content:center;width:100vw}.list{background-repeat:no-repeat;display:grid;grid-template-columns:repeat(5,50px);grid-template-rows:repeat(5,50px);list-style-type:none;margin:0;padding:0}
+/*# sourceMappingURL=main.abb6f2b7.css.map*/
