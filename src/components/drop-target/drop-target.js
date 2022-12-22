@@ -5,14 +5,15 @@ export default function DropTarget(props) {
   return (
     <li
       className="listItem"
-			onDragOver={(e)=> e.preventDefault()}
-			{...(!puzzleElement.id && {
-				onDrop: (e) => handleDrop(e, dropTargetIndex)
-			})}
+      onDragOver={(e) => e.preventDefault()}
+      {...(!puzzleElement.id && {
+        onDrop: (e) => handleDrop(e, dropTargetIndex),
+      })}
     >
       {puzzleElement.elementSrc && (
         <img
-					onDrag={(e) => handleDrag(e, puzzleElement)}
+					draggable
+          onDrag={(e) => handleDrag(e, puzzleElement)}
           src={`./${puzzleElement.elementSrc}`}
         />
       )}

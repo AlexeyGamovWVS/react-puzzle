@@ -4,11 +4,11 @@ export default function DragList(props) {
   const { puzzleElement, handleDrag } = props;
 
   return (
-    <li key={puzzleElement.id} className="listItem" >
+    <li key={puzzleElement.id} className="listItem">
       {puzzleElement && (
         <img
-					draggable
-					onDrag={(e) => handleDrag(e, puzzleElement)}
+          draggable
+          onDrag={(e) => handleDrag(e, puzzleElement)}
           src={`./${puzzleElement.elementSrc}`}
         />
       )}
